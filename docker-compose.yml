@@ -1,7 +1,4 @@
-#
-# Simple docker-compose file for Gitlab CE and a Jenkins master.
-# This is for testing and builds are done on the jenkins master.
-#
+# Simple docker-compose file for Gitlab CE and a Jenkins.
 
 version: "3"
 
@@ -28,4 +25,4 @@ services:
       - "8080:8080"
       - "50000:50000"
     volumes:
-      - "/home/ced/jenkinsci_docker:/var/jenkins_home"
+      - "/srv/jenkins/home:/var/jenkins_home"
