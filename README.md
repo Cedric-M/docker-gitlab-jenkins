@@ -76,6 +76,7 @@ So in our case, in order to deploy it, we'll do:
 
 ```
 sudo chown $USER /var/run/docker.sock
+sudo chown -R 1000 /srv/jenkins
 docker-compose up
 ```
 When you run docker-compose up, the following happens:
@@ -110,6 +111,27 @@ docker network ls    #Lists all the networks the Engine daemon knows about.
 ```
 
 ## Configuration (Jenkins, Gitlab CE)
+
+### Access both Jenkins and Gitlab CE:
+
+Type the following URLs in the web browser or your host:
+
+* Jenkins: http://localhost:8080/
+* Gitlab CE: http://localhost:8081/
+
+### Jenkins initial Admin Password & Blue Ocean Plugin
+
+You can find the Jenkins initial admin password in the following path:
+```
+/srv/jenkins/home/secrets/initialAdminPassword
+
+```
+In Jenkins, once you installed the recommanded Plugins and created your user, go to 
+```
+http://localhost:8080/pluginManager/available
+```
+
+and Install "Blue Ocean" and restart Jenkins.
 
 ### Get Gitlab CE Repository URL
 
