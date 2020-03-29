@@ -119,21 +119,15 @@ Type the following URLs in the web browser or your host:
 * Jenkins: http://localhost:8080/
 * Gitlab CE: http://localhost:8081/
 
-### Jenkins initial Admin Password & Blue Ocean Plugin
+### Configure GitLab
 
-You can find the Jenkins initial admin password in the following path:
-```
-/srv/jenkins/home/secrets/initialAdminPassword
+#### Configure GitLab users
 
-```
-In Jenkins, once you installed the recommanded Plugins and created your user, go to 
-```
-http://localhost:8080/pluginManager/available
-```
+Create a user or choose an existing user that Jenkins will use to interact through the GitLab API. This user will need to be a global Admin.
 
-and Install "Blue Ocean" and restart Jenkins.
+Go to http://localhost:8081/profile/personal_access_tokens and create a private API token and copy it somewhere. You will need this when configuring the Jenkins server later.
 
-### Get Gitlab CE Repository URL
+#### Get Gitlab server URL
 
 In order to find the Repository URL needed for Jenkins, you must find the IPV4 of your  gitlab-ci container, for this, please run the following
 
@@ -172,6 +166,47 @@ So in our example it is:
 ```
 http://172.20.0.2/root/simple-java-maven-app
 ```
+
+### Configure the Jenkins server 
+
+#### Jenkins initial Admin Password 
+
+You can find the Jenkins initial admin password in the following path of your host:
+```
+/srv/jenkins/home/secrets/initialAdminPassword
+
+```
+
+#### Jenkins Plugin Installation
+
+In Jenkins, once you installed the recommanded Plugins and created your user, go to 
+```
+http://localhost:8080/pluginManager/available
+```
+
+and install the following plugins:
+* Blue Ocean
+* [Jenkins GitLab Plugin](https://plugins.jenkins.io/gitlab-plugin/)
+* [Jenkins Git Plugin](https://plugins.jenkins.io/git/) 
+
+When done, restart Jenkins.
+
+#### Jenkins System Configuration
+
+Go to Manage Jenkins -> Configure System or use the following url:
+```
+http://localhost:8080/configure
+```
+and scroll down to the ‘GitLab’ section. Enter the GitLab server URL in the ‘GitLab host URL’ field and click the 'Add' button to add a credential, choose 'GitLab API token' as the kind of credential, and paste your GitLab user's API key into the 'API token' field
+
+*note: if you don't know the Gitlab server URL, please refer to the "Get Gitlab server URL" section above.*
+
+This section should now look like the following:
+
+
+
+For more information, see GitLab Plugin documentation about [Jenkins-to-GitLab authentication](https://github.com/jenkinsci/gitlab-plugin#jenkins-to-gitlab-authentication)
+
 
 ## Built With
 
