@@ -216,7 +216,7 @@ http://localhost:8081/admin/application_settings/network
 ```
 Then collapse the "Outbound requests" section and tick the following box, it should looks like this:
 
-
+![image](https://user-images.githubusercontent.com/19567048/77853498-aef51180-71e4-11ea-89d6-24c6e81a6c46.png)
 
 Create a new GitLab project or choose an existing one. Then, go to Settings -> Integrations
 
