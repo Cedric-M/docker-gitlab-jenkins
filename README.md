@@ -203,7 +203,7 @@ and scroll down to the ‘GitLab’ section. Enter the GitLab server URL in the 
 
 This section should now look like the following:
 
-
+![image](https://user-images.githubusercontent.com/19567048/77852304-3f7c2380-71de-11ea-9217-41d682f56a16.png)
 
 For more information, see GitLab Plugin documentation about [Jenkins-to-GitLab authentication](https://github.com/jenkinsci/gitlab-plugin#jenkins-to-gitlab-authentication)
 
