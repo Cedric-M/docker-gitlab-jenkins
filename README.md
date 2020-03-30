@@ -19,7 +19,6 @@ docker --version
 docker-compose --version
 # should return:
 # docker-compose version 1.25.4
-
 ```
 ### Installing 
 
@@ -99,8 +98,6 @@ In order to stops containers and removes containers, networks, volumes, and imag
 docker-compose down
 ```
 
-
-
 ### Supervision procedure
 
 In order to lists containers and networks
@@ -155,7 +152,6 @@ and then you should have something like:
                 "IPv6Address": ""
             }
         },
-
 ```
 Once you created your project under your Gitlab container, the Repository URL should now be
 
@@ -207,23 +203,16 @@ This section should now look like the following:
 
 For more information, see GitLab Plugin documentation about [Jenkins-to-GitLab authentication](https://github.com/jenkinsci/gitlab-plugin#jenkins-to-gitlab-authentication)
 
-### Configure a GitLab project
+#### Jenkins Job > Build Triggers
 
-First go to **Admin Area > Settings** or use the following url:
+The Buils Triggers Section tell Jenkins when to start a build, you can chose between various option.
+
+To make a simple Build periodically, you can for instance tick the box and use the following syntax:
 
 ```
-http://localhost:8081/admin/application_settings/network
+H/5 * * * *
 ```
-Then collapse the "Outbound requests" section and tick the following box, it should looks like this:
-
-![image](https://user-images.githubusercontent.com/19567048/77853498-aef51180-71e4-11ea-89d6-24c6e81a6c46.png)
-
-We had to do this because Webhook requests to the current GitLab instance server address and/or in a private network will be [forbidden by default](https://docs.gitlab.com/ee/security/webhooks.html).
-
-
-
-Create a new GitLab project or choose an existing one. Then, go to Settings -> Integrations
-
+*In this exemple our Jenkins server will build automatically every 5 minutes.*
 
 ## Built With
 
@@ -232,8 +221,6 @@ Create a new GitLab project or choose an existing one. Then, go to Settings -> I
 * [Gitlab CE](https://docs.gitlab.com/ee/install/docker.html)
 * [Jenkins](https://hub.docker.com/r/jenkins/jenkins/)
 
-
-
 ## Versioning
 
 We use [GitHub](https://github.com/Cedric-M/docker-gitlab-jenkins) for versioning.
@@ -241,9 +228,3 @@ We use [GitHub](https://github.com/Cedric-M/docker-gitlab-jenkins) for versionin
 ## Authors
 
 * **Cedric-M** - *DevOps Engineer*
-
-
-## Acknowledgments
-
-* Docker Engine
-* Docker Compose
