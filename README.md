@@ -153,7 +153,7 @@ and then you should have something like:
             }
         },
 ```
-Once you created your project under your Gitlab container, the Repository URL should now be
+Once you created your project under your Gitlab container, the Repository URL should now be:
 
 ```
 IPV4 Address + /USER + /REPOSITORY_NAME
@@ -170,7 +170,6 @@ http://172.20.0.2/root/simple-java-maven-app
 You can find the Jenkins initial admin password in the following path of your host:
 ```
 /srv/jenkins/home/secrets/initialAdminPassword
-
 ```
 
 #### Jenkins Plugin Installation
@@ -183,7 +182,7 @@ http://localhost:8080/pluginManager/available
 and install the following plugins:
 * Blue Ocean
 * [Jenkins GitLab Plugin](https://plugins.jenkins.io/gitlab-plugin/)
-* [Jenkins Git Plugin](https://plugins.jenkins.io/git/) 
+* Safe Restart Plugin
 
 When done, restart Jenkins.
 
@@ -203,7 +202,7 @@ This section should now look like the following:
 
 For more information, see GitLab Plugin documentation about [Jenkins-to-GitLab authentication](https://github.com/jenkinsci/gitlab-plugin#jenkins-to-gitlab-authentication)
 
-#### Jenkins Job > Build Triggers
+#### Jenkins Job: Build Triggers
 
 The Buils Triggers Section tell Jenkins when to start a build, you can chose between various option.
 
@@ -213,6 +212,15 @@ To make a simple Build periodically, you can for instance tick the box and use t
 H/5 * * * *
 ```
 *In this exemple our Jenkins server will build automatically every 5 minutes.*
+
+#### Blue Ocean
+
+Blue Ocean is a recommanded User Interface  to use within Jenkins, to access it, use the "Open Blue Ocean" from the left panel or go to the following url:
+
+```
+http://localhost:8080/blue/pipelines
+```
+To learn more about [Blue Ocean](https://jenkins.io/doc/book/blueocean/#blue-ocean).
 
 ## Built With
 
