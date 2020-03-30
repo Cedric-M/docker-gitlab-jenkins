@@ -218,6 +218,10 @@ Then collapse the "Outbound requests" section and tick the following box, it sho
 
 ![image](https://user-images.githubusercontent.com/19567048/77853498-aef51180-71e4-11ea-89d6-24c6e81a6c46.png)
 
+We had to do this because Webhook requests to the current GitLab instance server address and/or in a private network will be [forbidden by default](https://docs.gitlab.com/ee/security/webhooks.html).
+
+
+
 Create a new GitLab project or choose an existing one. Then, go to Settings -> Integrations
 
 
